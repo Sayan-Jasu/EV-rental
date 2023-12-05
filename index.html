@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>EV Rental</title>
+</head>
+
+<body>
+
+    <div id="popup">
+        <h1>Welcome to EV Rental</h1>
+        <p>Please sign in or sign up to continue</p>
+        <!-- <img id="logo" src="logo.webp" alt="Company Logo"> -->
+        <button id="signUpBtn" onclick="openForm('signUpForm')">Sign Up</button>
+        <button id="signInBtn" onclick="openForm('signInForm')">Sign In</button>
+    </div>
+
+    <div id="signUpForm" class="form-popup">
+        <form action="">
+            <h1>Sign Up</h1>
+            <div class="box">
+                <i class='bx bx-ghost'></i>
+                <input type="text" placeholder="Enter your full name" required>
+            </div>
+            <div class="box">
+                <i class='bx bx-envelope'></i>
+                <input type="mail" placeholder="Enter your email id" required>
+            </div>
+            <div class="box">
+                <i class='bx bx-key'></i>
+                <input type="password" placeholder="Create Password" required>
+            </div>
+            <!-- <label><input type="checkbox">Remember me!</label> -->
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+
+    <div id="signInForm" class="form-popup">
+        <form action="">
+            <h1>Sign In</h1>
+            <div class="box">
+                <i class='bx bx-envelope'></i>
+                <input type="text" placeholder="Your email id" required>
+            </div>
+            <div class="box">
+                <i class='bx bx-lock'></i>
+                <input type="password" placeholder="Your Password" required>
+            </div>
+            <!-- <label><input type="checkbox">Remember me!</label> -->
+            <!-- <a href="#">Forgot Password?</a> -->
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <span><img id="logo" src="logo.webp" alt="Company Logo">
+            <h1>EV Car Rental</h1></span>
+            <ul>
+                <li>
+                    <button type="submit">Home</button>
+                </li>
+                <li>
+                    <button type="submit">About EV</button>
+                </li>
+                <li>
+                    <button type="submit">Rent EV</button>
+                </li>
+                <li>
+                    <button type="submit">Lease EV</button>
+                </li>
+                <li>
+                    <box-icon name='user-circle'></box-icon>
+                </li>
+            </ul>
+        </header>
+
+        <main>
+            <div id="rentLeaseOptions" style="display: none;">
+                <button id="btnRentEV">Rent EV</button>
+                <button id="btnLeaseEV">Lease EV</button>
+            </div>
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

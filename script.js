@@ -1,3 +1,12 @@
+const b1 = document.querySelector("#home");
+const b2 = document.querySelector("#about");
+const b3 = document.querySelector("#rent");
+const b4 = document.querySelector("#lease");
+const bp = document.querySelector("#profile");
+const bs = document.querySelector("#submit");
+const bu = document.querySelector("#signUpBtn");
+const bi = document.querySelector("#signInBtn");
+
 document.addEventListener("DOMContentLoaded", function() {
     openPopup();
 });
@@ -19,34 +28,32 @@ function closeAllForms() {
     }
 }
 
-document.getElementById("btnSignUp").addEventListener("click", function() {
-    alert("Sign Up button clicked!");
-    changeButtonColor("btnSignUp");
-});
+function showSection(sectionId) {
+    var sections = document.querySelectorAll("main > div");
+    sections.forEach(function(section) {
+        section.style.display = "none";
+    });
 
-document.getElementById("btnSignIn").addEventListener("click", function() {
-    alert("Sign In button clicked!");
-    changeButtonColor("btnSignIn");
-});
-
-document.getElementById("btnRentEV").addEventListener("click", function() {
-    alert("Rent EV button clicked!");
-    changeButtonColor("btnRentEV");
-});
-
-document.getElementById("btnLeaseEV").addEventListener("click", function() {
-    alert("Lease EV button clicked!");
-    changeButtonColor("btnLeaseEV");
-});
-
-// Show rent and lease options after sign-in
-document.addEventListener("DOMContentLoaded", function() {
-    const rentLeaseOptions = document.getElementById("rentLeaseOptions");
-    // For testing, always show the options
-    rentLeaseOptions.style.display = "block";
-});
-
-function changeButtonColor(buttonId) {
-    const button = document.getElementById(buttonId);
-    button.style.backgroundColor = "#FF5733"; // Change to a different color
+    document.querySelector(`main .${sectionId}`).style.display = "block";
 }
+
+// Event listeners for section buttons
+b1.addEventListener("click", function() {
+    showSection("home");
+});
+
+b2.addEventListener("click", function() {
+    showSection("about");
+});
+
+b3.addEventListener("click", function() {
+    showSection("rentEV");
+});
+
+b4.addEventListener("click", function() {
+    showSection("leaseEV");
+});
+
+bp.addEventListener("click", function() {
+    showSection("profile");
+});

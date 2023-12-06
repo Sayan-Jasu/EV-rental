@@ -134,6 +134,11 @@ header img {
     margin-right: 10px;
 }
 
+header #profile {
+    width: 100%;
+    height: 100%;
+}
+
 #popup button {
     padding: 10px;
     margin: 5px;
@@ -206,4 +211,60 @@ header img {
 #main-content header ul li button:hover {
     cursor: pointer;
     box-shadow: 50px 50px 10px #00000044 inset;
+}
+
+main .home {
+    color: #ffffffcc;
+    display: absolute;
+    overflow: auto;
+}
+
+main h2 {
+    width: 100%;
+    font-size: 70px;
+}
+
+main .home .content {
+    display: flex;
+    font-size: 30px;
+    text-justify: right;
+}
+
+main img {
+    width: 50%;
+    height: auto;
+}
+
+main .about {
+    color: #ffffffcc;
+    display: none;
+    overflow: auto;
+}
+
+main .about .content {
+    display: flex;
+    font-size: 25px;
+    text-justify: right;
+}
+
+main .about #badge {
+    width: 30%;
+    height: 30%;
+}
+
+main .about #charge {
+    width: 30%;
+    height: 100%;
+}
+
+main .rentEV {
+    display: none;
+}
+
+main .leaseEV {
+    display: none;
+}
+
+main .profile {
+    display: none;
 }

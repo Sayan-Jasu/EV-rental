@@ -35,7 +35,7 @@
                 <input type="password" placeholder="Create Password" required>
             </div>
             <!-- <label><input type="checkbox">Remember me!</label> -->
-            <button type="submit">Continue</button>
+            <button type="submit" id="submit">Continue</button>
         </form>
     </div>
 
@@ -52,7 +52,7 @@
             </div>
             <!-- <label><input type="checkbox">Remember me!</label> -->
             <!-- <a href="#">Forgot Password?</a> -->
-            <button type="submit">Continue</button>
+            <button type="submit" id="submit">Continue</button>
         </form>
     </div>
 
@@ -62,27 +62,57 @@
             <h1>EV Car Rental</h1></span>
             <ul>
                 <li>
-                    <button type="submit">Home</button>
+                    <button type="submit" id="home">Home</button>
                 </li>
                 <li>
-                    <button type="submit">About EV</button>
+                    <button type="submit" id="about">About EV</button>
                 </li>
                 <li>
-                    <button type="submit">Rent EV</button>
+                    <button type="submit" id="rent">Rent EV</button>
                 </li>
                 <li>
-                    <button type="submit">Lease EV</button>
+                    <button type="submit" id="lease">Lease EV</button>
                 </li>
                 <li>
-                    <box-icon name='user-circle'></box-icon>
+                    <button type="submit" id="profile"><img src="pro.png"></button>
                 </li>
             </ul>
         </header>
 
         <main>
-            <div id="rentLeaseOptions" style="display: none;">
-                <button id="btnRentEV">Rent EV</button>
-                <button id="btnLeaseEV">Lease EV</button>
+            <div class="home">
+                <h2>Welcome to EV Rental</h2>
+                <div class="content">
+                    <img src="car1.avif">
+                    <p>Embark on a journey into the future of transportation with EV Rental, where innovation meets sustainable mobility.<br> Our platform introduces you to a fleet of cutting-edge electric vehicles, meticulously selected for their performance,
+                        style, and eco-friendliness. We believe in offering more than just a means of transportation; we provide an experience that aligns with the evolving needs of modern consumers.<br> Explore the thrill of eco-friendly driving without
+                        compromise. From city-friendly compact cars to high-performance electric SUVs, our curated selection caters to every preference and lifestyle.<br> At EV Rental, we envision a world where sustainable choices are not just a trend
+                        but a way of life. Join us in reshaping the future of mobility—one electric drive at a time.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about">
+                <h2>About Electric Vehicles</h2>
+                <div class="content">
+                    <img src="badge.png" id="badge">
+                    <p>Electric vehicles (EVs) are at the forefront of revolutionizing the automotive industry, offering a cleaner, more sustainable alternative to traditional gasoline-powered cars. As we stand at the cusp of a new era in transportation,
+                        understanding the significance of EVs becomes paramount.<br>EVs produce zero tailpipe emissions, contributing significantly to reducing air pollution and mitigating climate change. Beyond environmental benefits, electric vehicles
+                        often boast lower operating costs, providing long-term financial advantages to owners.<br>Our 'About EV' section aims to educate and inspire. Dive into the world of electric vehicles, where innovation and sustainability converge.
+                        Discover the technology behind EVs, their environmental impact, and the growing global movement towards electric mobility.<br>Join us in fostering a community that not only embraces cutting-edge technology but also champions a
+                        greener, more sustainable future. Together, let's drive change.
+                    </p>
+                    <img src="charge.png" id="charge">
+                </div>
+            </div>
+            <div class="rentEV">
+                <!--  -->
+            </div>
+            <div class="leaseEV">
+                <!--  -->
+            </div>
+            <div class="profile">
+                <!--  -->
             </div>
         </main>
 

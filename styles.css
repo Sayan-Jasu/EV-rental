@@ -1,6 +1,8 @@
 main {
     text-align: center;
     padding: 20px;
+    /* background: url(back.jpeg); */
+    backdrop-filter: blur(5px);
 }
 
 body {
@@ -81,7 +83,7 @@ body {
     padding: 5px 12px;
 }
 
-.box input::placeholder {
+.form-popup .box input::placeholder {
     color: #ffffff88;
 }
 
@@ -215,7 +217,7 @@ header #profile {
 
 main .home {
     color: #ffffffcc;
-    display: absolute;
+    display: block;
     overflow: auto;
 }
 
@@ -258,11 +260,88 @@ main .about #charge {
 }
 
 main .rentEV {
+    color: #ffffffcc;
     display: none;
+    overflow: auto;
 }
 
 main .leaseEV {
+    color: #ffffffcc;
     display: none;
+    overflow: auto;
+}
+
+.leaseEV .form-lease {
+    display: block;
+    left: 0;
+    top: 15%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    bottom: 0;
+    right: 0;
+    /* border: 2px solid #FFFFFF33; */
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffffff20;
+}
+
+.leaseEV .form-lease .box {
+    display: flex;
+    width: 70%;
+    height: 30px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaseEV .form-lease #upload {
+    height: 60px;
+}
+
+.leaseEV .form-lease #upload input {
+    border-radius: 20px;
+}
+
+.leaseEV .form-lease .box input {
+    position: relative;
+    width: 98%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #ffffff33;
+    border-radius: 40px;
+    font-size: 15px;
+    color: #ffffffdd;
+    padding: 5px 12px;
+}
+
+.leaseEV .form-lease .box input::placeholder {
+    color: #ffffff88;
+}
+
+.leaseEV .form-lease button {
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    color: #ffffff88;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px #ffffff20;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.leaseEV .form-lease button:hover {
+    background-color: transparent;
+    backdrop-filter: none;
+    color: #ffffffdd;
 }
 
 main .profile {

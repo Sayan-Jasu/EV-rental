@@ -1,13 +1,19 @@
-const APILINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=36f9be70cd0cd94edcf01375b6650ab6&page=1';
+// const LocalApiLink = 'http://localhost:3000';
+const mainApiLink = 'https://car-rental-backend-6kq2.onrender.com';
 const b1 = document.querySelector("#home");
 const b2 = document.querySelector("#about");
 const b3 = document.querySelector("#rent");
 const b4 = document.querySelector("#lease");
-const bp = document.querySelector("#profile");
-const bs = document.querySelector("#submit");
+const profileButton = document.querySelector("#profile");
+const register = document.querySelector("#submitButton1");
+const login = document.querySelector('#submitButton2');
 const bu = document.querySelector("#signUpBtn");
 const bi = document.querySelector("#signInBtn");
 const main = document.getElementById("section");
+const authenticate = {
+    'signUpForm': 'register',
+    'signInForm': 'login'
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,8 +26,27 @@ function openPopup() {
 }
 
 function openForm(formId) {
-    closeAllForms();
-    document.getElementById(formId).style.display = "flex";
+    const pointedForm = document.getElementById(formId);
+    pointedForm.style.display = 'flex';
+    pointedForm.addEventListener('submit', async (event)=>{
+        event.preventDefault();
+        const data={};
+        const inputFields = document.querySelectorAll(#${formId} .box input);
+        for (let i = 0; i < inputFields.length; i++) {
+            const element = inputFields[i];
+            const fieldName = element.getAttribute('name');
+            data[fieldName] = element.value;
+        }
+        try {
+            const {data:{token}} = await axios.post(${mainApiLink}/api/v1/auth/${authenticate[formId]},{
+                data
+            });
+            localStorage.setItem('token', token);
+            closeAllForms();
+        } catch (error) {
+            console.log(error);
+        }
+    })
 }
 
 function closeAllForms() {
@@ -37,7 +62,7 @@ function showSection(sectionId) {
     sections.forEach(function(section) {
         section.style.display = "none";
     });
-    document.querySelector(`main .${sectionId}`).style.display = "block";
+    document.querySelector(main .${sectionId}).style.display = "block";
 }
 
 // Event listeners for section buttons
@@ -50,56 +75,38 @@ b2.addEventListener("click", function() {
 });
 
 b3.addEventListener("click", function() {
-    returnCars(APILINK);
     showSection("rentEV");
 });
 
 b4.addEventListener("click", function() {
     showSection("leaseEV");
-    // openForm('lease');
 });
 
-bp.addEventListener("click", function() {
-    showSection("profile");
+profileButton.addEventListener("click", async function() {
+    const token = localStorage.getItem('token');
+    const {data:userData} = await axios.get(${mainApiLink}/api/v1/user, {
+        headers:{
+            'Authorization': Bearer ${token}
+        }
+    })
+    const dataField = ['name', 'emailId', 'username'];
+    const userDetail = document.querySelectorAll('.userDetails h3');
+    for (let i = 0; i < 3; i++) {
+        userDetail[i].textContent = ${dataField[i]}: ${userData[dataField[i]]};
+    }
+
+    const {data : {results}} = await axios.get(${mainApiLink}/api/v1/user/product,{
+        headers:{
+            'Authorization': Bearer ${token}
+        }
+    });
+
+    const itemImages = document.querySelectorAll('.itemDetails img');
+    const itemPrice = document.querySelectorAll('.items h3');
+
+    for (let i = 0; i < results.length; i++) {
+        itemImages[i].setAttribute('src', results[i].image);
+        itemPrice[i].textContent = results[i].price;
+    }
+    showSection('profile');
 });
-
-bs.addEventListener("click", function() {
-    closeAllForms();
-});
-
-function returnCars(url) {
-    fetch(url).then(res => res.json())
-        .then(function(data) {
-            console.log(data.results);
-            data.results.forEach(element => {
-                const div_card = document.createElement('div');
-                div_card.setAttribute('class', 'card');
-
-                const div_row = document.createElement('div');
-                div_row.setAttribute('class', 'row');
-
-                const div_column = document.createElement('div');
-                div_column.setAttribute('class', 'column');
-
-                const image = document.createElement('img');
-                image.setAttribute('class', 'thumbnail');
-                image.setAttribute('id', 'image');
-
-                const title = document.createElement('h3');
-                title.setAttribute('id', 'title');
-
-                const center = document.createElement('center');
-
-                title.innerHTML = `${element.title}`;
-                image.src = IMG_PATH + element.poster_path;
-
-                center.appendChild(image);
-                div_card.appendChild(center);
-                div_card.appendChild(title);
-                div_column.appendChild(div_card);
-                div_row.appendChild(div_column);
-
-                main.appendChild(div_row);
-            });
-        });
-}

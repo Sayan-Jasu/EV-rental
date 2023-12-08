@@ -449,7 +449,7 @@ main .profile {
 }
 
 .gradientText {
-    background: -webkit-linear-gradient(45deg, #000000aa, #ffff37);
+    background: -webkit-linear-gradient(45deg, #0000aaaa, #000000cc);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -492,4 +492,23 @@ main .profile {
 .itemOptions h3 {
     width: 40%;
     text-align: center;
+}
+
+.thumbnail {
+    height: 350px;
+    width: 250px;
+    border-radius: 19px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+}
+
+.card {
+    border-radius: 19px;
+    padding: 10px;
+    text-align: center;
+    background-color: #5a5a13aa;
 }
